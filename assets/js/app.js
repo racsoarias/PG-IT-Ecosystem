@@ -30,7 +30,7 @@ class OrgExplorer {
 
         try {
 
-            console.log("Starting Org Explorer...");
+            console.log("🚀 Starting Org Explorer...");
 
             this.initializeTheme();
 
@@ -59,7 +59,7 @@ class OrgExplorer {
 
             }
 
-            console.log("Application Ready");
+            console.log("✅ Application Ready");
 
         }
         catch (error) {
@@ -109,13 +109,13 @@ class OrgExplorer {
         this.statistics.countries = new Set(
             this.employees
                 .map(e => e.country)
-                .filter(c => c && c.length > 0)
+                .filter(Boolean)
         ).size;
 
         this.statistics.organizations = new Set(
             this.employees
                 .map(e => e.organization)
-                .filter(o => o && o.length > 0)
+                .filter(Boolean)
         ).size;
 
     }
@@ -148,9 +148,12 @@ class OrgExplorer {
      */
     initializeTheme() {
 
-        const theme = localStorage.getItem("theme") || "dark";
+        // Default to DARK for first-time visitors
+        const theme = localStorage.getItem("theme") ?? "dark";
 
-        document.documentElement.dataset.theme = theme;
+        document.documentElement.setAttribute("data-theme", theme);
+
+        this.updateThemeIcon(theme);
 
         document
             .getElementById("btnTheme")
@@ -164,15 +167,33 @@ class OrgExplorer {
 
     toggleTheme() {
 
-        const current = document.documentElement.dataset.theme;
+        const current =
+            document.documentElement.getAttribute("data-theme");
 
-        const next = current === "dark"
-            ? "light"
-            : "dark";
+        const next =
+            current === "dark"
+                ? "light"
+                : "dark";
 
-        document.documentElement.dataset.theme = next;
+        document.documentElement.setAttribute("data-theme", next);
 
         localStorage.setItem("theme", next);
+
+        this.updateThemeIcon(next);
+
+    }
+
+    updateThemeIcon(theme) {
+
+        const icon = document.querySelector("#btnTheme i");
+
+        if (!icon)
+            return;
+
+        icon.className =
+            theme === "dark"
+                ? "bi bi-sun-fill"
+                : "bi bi-moon-fill";
 
     }
 
@@ -210,7 +231,11 @@ class OrgExplorer {
 
         this.renderStatistics();
 
-        Tree.render(this.employees);
+        if (window.Tree) {
+
+            Tree.render(this.employees);
+
+        }
 
     }
 
@@ -229,15 +254,10 @@ class OrgExplorer {
             return;
 
         tree.innerHTML = `
-
             <div class="alert alert-danger">
-
                 <h4>Application Error</h4>
-
                 <p>${error.message}</p>
-
             </div>
-
         `;
 
     }
