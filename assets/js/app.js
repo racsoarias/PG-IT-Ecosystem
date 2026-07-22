@@ -148,7 +148,7 @@ class OrgExplorer {
      */
     initializeTheme() {
 
-        const theme = localStorage.getItem("theme") || "light";
+        const theme = localStorage.getItem("theme") || "dark";
 
         document.documentElement.dataset.theme = theme;
 
