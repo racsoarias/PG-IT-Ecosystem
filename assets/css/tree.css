@@ -1,0 +1,337 @@
+/*
+==========================================================
+P&G Enterprise Org Explorer
+tree.css
+==========================================================
+*/
+
+/*=========================================================
+Tree Container
+=========================================================*/
+
+#treeContainer{
+
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:16px;
+
+}
+
+/*=========================================================
+Employee Node
+=========================================================*/
+
+.employee-node{
+
+    position:relative;
+    padding-left:30px;
+    width:100%;
+
+}
+
+/* Vertical connector */
+
+.employee-node::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:12px;
+    top:0;
+    bottom:0;
+
+    width:2px;
+
+    background:var(--border);
+
+}
+
+/* Horizontal connector */
+
+.employee-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-18px;
+    top:50%;
+
+    width:18px;
+    height:2px;
+
+    background:var(--border);
+
+}
+
+/* Root node */
+
+#treeContainer > .employee-node{
+
+    padding-left:0;
+
+}
+
+#treeContainer > .employee-node::before{
+
+    display:none;
+
+}
+
+#treeContainer > .employee-node > .employee-card::before{
+
+    display:none;
+
+}
+
+/*=========================================================
+Employee Card
+=========================================================*/
+
+.employee-card{
+
+    position:relative;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    padding:16px;
+
+    box-shadow:var(--shadow-sm);
+
+    cursor:pointer;
+
+    transition:all .25s ease;
+
+    max-width:380px;
+
+}
+
+.employee-card:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-lg);
+
+    border-color:var(--primary);
+
+}
+
+/*=========================================================
+Header
+=========================================================*/
+
+.employee-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+/*=========================================================
+Avatar
+=========================================================*/
+
+.employee-card .avatar{
+
+    width:56px;
+    height:56px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:1.1rem;
+    font-weight:700;
+
+    flex-shrink:0;
+
+    overflow:hidden;
+
+}
+
+.employee-card .avatar img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+/*=========================================================
+Employee Info
+=========================================================*/
+
+.employee-info{
+
+    flex:1;
+
+}
+
+.employee-info h5{
+
+    margin:0;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    color:var(--text);
+
+}
+
+.employee-title{
+
+    margin-top:4px;
+
+    color:var(--text-secondary);
+
+    font-size:.90rem;
+
+}
+
+.employee-location{
+
+    margin-top:6px;
+
+    color:var(--text-secondary);
+
+    font-size:.82rem;
+
+}
+
+.employee-location i{
+
+    margin-right:4px;
+
+}
+
+/*=========================================================
+Expand Button
+=========================================================*/
+
+.tree-toggle{
+
+    margin-top:10px;
+    margin-left:20px;
+
+    font-size:.80rem;
+
+}
+
+/*=========================================================
+Children
+=========================================================*/
+
+.children{
+
+    margin-top:10px;
+    margin-left:30px;
+
+    overflow:hidden;
+
+    transition:all .25s ease;
+
+}
+
+/*=========================================================
+Collapse States
+=========================================================*/
+
+.children.collapsed{
+
+    display:none;
+
+}
+
+.children.expanded{
+
+    display:block;
+
+}
+
+/*=========================================================
+Animation
+=========================================================*/
+
+.children.expanded{
+
+    animation:fadeDown .20s ease;
+
+}
+
+@keyframes fadeDown{
+
+    from{
+
+        opacity:0;
+        transform:translateY(-6px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+Hover
+=========================================================*/
+
+.employee-card:hover .employee-info h5{
+
+    color:var(--primary);
+
+}
+
+/*=========================================================
+Responsive
+=========================================================*/
+
+@media (max-width:768px){
+
+    .employee-card{
+
+        max-width:100%;
+
+    }
+
+    .employee-node{
+
+        padding-left:18px;
+
+    }
+
+    .children{
+
+        margin-left:18px;
+
+    }
+
+    .employee-header{
+
+        gap:12px;
+
+    }
+
+}

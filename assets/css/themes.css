@@ -1,0 +1,101 @@
+/*
+==========================================================
+P&G Enterprise Org Explorer
+themes.css
+==========================================================
+
+Contains ONLY theme definitions.
+
+==========================================================
+*/
+
+/*=========================================================
+Light Theme (Default)
+=========================================================*/
+
+:root{
+
+    --primary:#0057B8;
+    --primary-dark:#003F8A;
+
+    --background:#F5F7FA;
+    --surface:#FFFFFF;
+    --surface-alt:#F8FAFC;
+
+    --text:#1F2937;
+    --text-secondary:#6B7280;
+
+    --border:#E5E7EB;
+
+    --success:#198754;
+    --warning:#FFC107;
+    --danger:#DC3545;
+    --info:#0DCAF0;
+
+    --shadow-sm:0 1px 3px rgba(0,0,0,.08);
+    --shadow:0 2px 8px rgba(0,0,0,.10);
+    --shadow-lg:0 8px 20px rgba(0,0,0,.12);
+
+}
+
+/*=========================================================
+Dark Theme
+=========================================================*/
+
+[data-theme="dark"]{
+
+    --primary:#4DA3FF;
+    --primary-dark:#7AB9FF;
+
+    --background:#111827;
+    --surface:#1F2937;
+    --surface-alt:#273548;
+
+    --text:#F9FAFB;
+    --text-secondary:#D1D5DB;
+
+    --border:#374151;
+
+    --success:#4ADE80;
+    --warning:#FACC15;
+    --danger:#F87171;
+    --info:#38BDF8;
+
+    --shadow-sm:0 1px 3px rgba(0,0,0,.35);
+    --shadow:0 3px 10px rgba(0,0,0,.40);
+    --shadow-lg:0 12px 28px rgba(0,0,0,.45);
+
+}
+
+/*=========================================================
+Automatic Theme
+=========================================================*/
+
+@media (prefers-color-scheme: dark){
+
+    :root:not([data-theme="light"]){
+
+        --primary:#4DA3FF;
+        --primary-dark:#7AB9FF;
+
+        --background:#111827;
+        --surface:#1F2937;
+        --surface-alt:#273548;
+
+        --text:#F9FAFB;
+        --text-secondary:#D1D5DB;
+
+        --border:#374151;
+
+        --success:#4ADE80;
+        --warning:#FACC15;
+        --danger:#F87171;
+        --info:#38BDF8;
+
+        --shadow-sm:0 1px 3px rgba(0,0,0,.35);
+        --shadow:0 3px 10px rgba(0,0,0,.40);
+        --shadow-lg:0 12px 28px rgba(0,0,0,.45);
+
+    }
+
+}

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>P&G Enterprise Org Explorer</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="assets/css/app.css" rel="stylesheet">
+    <link href="assets/css/tree.css" rel="stylesheet">
+    <!-- Optional -->
+    <!-- <link href="assets/css/themes.css" rel="stylesheet"> -->
+
+</head>
+
+<body>
+
+    <!-- ===================================================== -->
+    <!-- Navigation -->
+    <!-- ===================================================== -->
+
+    <nav class="navbar navbar-expand-lg">
+
+        <div class="container-fluid">
+
+            <a class="navbar-brand d-flex align-items-center" href="#">
+
+                <img
+                    src="assets/img/pg-logo.svg"
+                    alt="P&G"
+                    class="me-2">
+
+                <strong>P&G Enterprise Org Explorer</strong>
+
+            </a>
+
+            <button
+                id="btnTheme"
+                class="btn btn-outline-primary">
+
+                <i class="bi bi-moon"></i>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+    <!-- ===================================================== -->
+    <!-- Main -->
+    <!-- ===================================================== -->
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <!-- Sidebar -->
+
+            <div class="col-lg-2 sidebar">
+
+                <h5>Navigation</h5>
+
+                <div class="nav flex-column">
+
+                    <a class="nav-link active" href="#">
+
+                        <i class="bi bi-diagram-3"></i>
+                        Organization
+
+                    </a>
+
+                    <a class="nav-link" href="#">
+
+                        <i class="bi bi-people"></i>
+                        Employees
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Content -->
+
+            <div class="col-lg-10 main-content">
+
+                <!-- Search -->
+
+                <div class="search-box">
+
+                    <i class="bi bi-search"></i>
+
+                    <input
+                        id="txtSearch"
+                        type="text"
+                        class="form-control"
+                        placeholder="Search by name, title, country, organization...">
+
+                </div>
+
+                <!-- Statistics -->
+
+                <div class="row g-3 mb-4">
+
+                    <div class="col-md-3">
+
+                        <div class="stat-card">
+
+                            <div
+                                id="employeeCount"
+                                class="stat-number">
+
+                                0
+
+                            </div>
+
+                            <div class="stat-label">
+
+                                Employees
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <div class="stat-card">
+
+                            <div
+                                id="managerCount"
+                                class="stat-number">
+
+                                0
+
+                            </div>
+
+                            <div class="stat-label">
+
+                                Managers
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <div class="stat-card">
+
+                            <div
+                                id="countryCount"
+                                class="stat-number">
+
+                                0
+
+                            </div>
+
+                            <div class="stat-label">
+
+                                Countries
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <div class="stat-card">
+
+                            <div
+                                id="organizationCount"
+                                class="stat-number">
+
+                                0
+
+                            </div>
+
+                            <div class="stat-label">
+
+                                Organizations
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Organization Tree -->
+
+                <div class="tree-card">
+
+                    <div class="tree-toolbar">
+
+                        <h4 class="mb-0">
+
+                            Organization Chart
+
+                        </h4>
+
+                        <div>
+
+                            <button
+                                id="btnExpandAll"
+                                class="btn btn-primary me-2">
+
+                                <i class="bi bi-arrows-expand"></i>
+                                Expand All
+
+                            </button>
+
+                            <button
+                                id="btnCollapseAll"
+                                class="btn btn-outline-secondary">
+
+                                <i class="bi bi-arrows-collapse"></i>
+                                Collapse All
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div id="treeContainer"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- Employee Drawer -->
+    <!-- ===================================================== -->
+
+    <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="employeeDrawer">
+
+        <div class="offcanvas-header">
+
+            <h5
+                class="offcanvas-title"
+                id="employeeName">
+
+                Employee
+
+            </h5>
+
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas">
+
+            </button>
+
+        </div>
+
+        <div class="offcanvas-body">
+
+            <!-- Filled dynamically -->
+
+        </div>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- Scripts -->
+    <!-- ===================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/tree.js"></script>
+    <script src="assets/js/drawer.js"></script>
+    <script src="assets/js/search.js"></script>
+
+</body>
+
+</html>

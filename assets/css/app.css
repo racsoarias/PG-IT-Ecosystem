@@ -1,0 +1,482 @@
+/*
+==========================================================
+P&G Enterprise Org Explorer
+app.css
+==========================================================
+*/
+
+:root {
+
+    --pg-blue: #0057B8;
+    --pg-blue-dark: #003F8A;
+
+    --background: #F5F7FA;
+    --surface: #FFFFFF;
+
+    --text: #222;
+    --text-light: #666;
+
+    --border: #E2E8F0;
+
+    --shadow: 0 2px 8px rgba(0,0,0,.08);
+
+}
+
+/*=========================================================
+Dark Theme
+=========================================================*/
+
+[data-theme="dark"]{
+
+    --background:#111827;
+    --surface:#1F2937;
+
+    --text:#F3F4F6;
+    --text-light:#C9CED6;
+
+    --border:#374151;
+
+    --shadow:0 2px 10px rgba(0,0,0,.35);
+
+}
+
+/*=========================================================
+Body
+=========================================================*/
+
+body{
+
+    background:var(--background);
+    color:var(--text);
+
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+
+    min-height:100vh;
+
+}
+
+/*=========================================================
+Navbar
+=========================================================*/
+
+.navbar{
+
+    background:var(--surface);
+
+    box-shadow:var(--shadow);
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.navbar-brand{
+
+    font-weight:600;
+
+    color:var(--pg-blue);
+
+}
+
+.navbar img{
+
+    height:36px;
+
+}
+
+/*=========================================================
+Sidebar
+=========================================================*/
+
+.sidebar{
+
+    background:var(--surface);
+
+    border-right:1px solid var(--border);
+
+    min-height:calc(100vh - 56px);
+
+    padding:20px;
+
+}
+
+.sidebar h5{
+
+    margin-bottom:20px;
+
+}
+
+.sidebar .nav-link{
+
+    color:var(--text);
+
+    border-radius:8px;
+
+    margin-bottom:5px;
+
+    transition:.2s;
+
+}
+
+.sidebar .nav-link:hover{
+
+    background:#EDF4FF;
+
+    color:var(--pg-blue);
+
+}
+
+[data-theme="dark"] .sidebar .nav-link:hover{
+
+    background:#243447;
+
+}
+
+/*=========================================================
+Content
+=========================================================*/
+
+.main-content{
+
+    padding:30px;
+
+}
+
+/*=========================================================
+Dashboard Cards
+=========================================================*/
+
+.stat-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    padding:20px;
+
+    box-shadow:var(--shadow);
+
+    transition:.2s;
+
+    height:100%;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.stat-number{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:var(--pg-blue);
+
+}
+
+.stat-label{
+
+    color:var(--text-light);
+
+}
+
+/*=========================================================
+Search
+=========================================================*/
+
+.search-box{
+
+    position:relative;
+
+    margin-bottom:25px;
+
+}
+
+.search-box input{
+
+    border-radius:10px;
+
+    padding-left:40px;
+
+}
+
+.search-box i{
+
+    position:absolute;
+
+    left:14px;
+
+    top:12px;
+
+    color:#999;
+
+}
+
+/*=========================================================
+Tree Card
+=========================================================*/
+
+.tree-card{
+
+    background:var(--surface);
+
+    border-radius:12px;
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+    padding:25px;
+
+}
+
+.tree-toolbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+}
+
+/*=========================================================
+Buttons
+=========================================================*/
+
+.btn-primary{
+
+    background:var(--pg-blue);
+
+    border-color:var(--pg-blue);
+
+}
+
+.btn-primary:hover{
+
+    background:var(--pg-blue-dark);
+
+    border-color:var(--pg-blue-dark);
+
+}
+
+.btn{
+
+    border-radius:8px;
+
+}
+
+/*=========================================================
+Drawer
+=========================================================*/
+
+.offcanvas{
+
+    background:var(--surface);
+
+    color:var(--text);
+
+}
+
+.offcanvas-header{
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.offcanvas-body{
+
+    padding:25px;
+
+}
+
+/*=========================================================
+Avatar
+=========================================================*/
+
+.avatar{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    background:var(--pg-blue);
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:2rem;
+
+    font-weight:bold;
+
+    margin:auto;
+
+}
+
+.avatar img{
+
+    width:100%;
+
+    height:100%;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+/*=========================================================
+Tables
+=========================================================*/
+
+.table{
+
+    color:var(--text);
+
+}
+
+.table th{
+
+    width:110px;
+
+    color:var(--text-light);
+
+}
+
+/*=========================================================
+Manager / Report Buttons
+=========================================================*/
+
+.manager-link,
+.report-link{
+
+    text-align:left;
+
+}
+
+/*=========================================================
+Badges
+=========================================================*/
+
+.badge{
+
+    font-weight:500;
+
+    padding:.55rem .75rem;
+
+}
+
+/*=========================================================
+Alerts
+=========================================================*/
+
+.alert{
+
+    border-radius:10px;
+
+}
+
+/*=========================================================
+Scrollbar
+=========================================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#C7CDD6;
+
+    border-radius:8px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#AEB6C1;
+
+}
+
+/*=========================================================
+Responsive
+=========================================================*/
+
+@media (max-width:992px){
+
+    .sidebar{
+
+        min-height:auto;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .main-content{
+
+        padding:15px;
+
+    }
+
+    .tree-toolbar{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .stat-number{
+
+        font-size:1.6rem;
+
+    }
+
+}
+
+@media (max-width:576px){
+
+    .navbar-brand{
+
+        font-size:1rem;
+
+    }
+
+    .avatar{
+
+        width:70px;
+
+        height:70px;
+
+        font-size:1.4rem;
+
+    }
+
+}
